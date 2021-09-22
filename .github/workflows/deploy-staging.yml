@@ -7,3 +7,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+env:
+  DOCKER_IMAGE_NAME: t2khan1-azure-ttt
+  IMAGE_REGISTRY_URL: docker.pkg.github.com
+  #################################################
+  ### USER PROVIDED VALUES ARE REQUIRED BELOW   ###
+  #################################################
+  #################################################
+  ### REPLACE USERNAME WITH GH USERNAME         ###
+  AZURE_WEBAPP_NAME: t2khan1-ttt-app
+  #################################################
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
